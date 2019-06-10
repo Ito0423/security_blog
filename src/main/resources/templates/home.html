@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>top page</title>
+	<meta http-equiv="Content-Type" 
+		content="text/html; charset=UTF-8" />
+	<LINK REL="stylesheet" TYPE="text/css" HREF="css/blog.css"></LINK>
+	
+</head>
+<body bgcolor="#CCFFFF">
+	<h1 >入力画面</h1>
+<img src="img/web.jpg"  width="700" height="350" >
+	
+	<table >
+	<form method="post" action="/"　th:object="${formModel}">
+	
+	<tr><td><label for="title">タイトル</label></td>
+	<td><input type="text" name="title" th:value="*{title}"></input></td></tr>
+	<tr><td><label for="memo">入力</label></td>
+	<td><textarea name="memo" rows="20" cols="50" th:text="*{memo}"></textarea></td></tr>
+	<tr><td></td><td><input type="submit"/></td></tr>
+	</form>
+	</table>
+	<pre>
+	<table>
+	<tr><th>編集</th><th>消去</th><th>view</th><th>編集日時</th><th>タイトル</th><th>文</th></tr>
+	<tr th:each="obj:${datalist}">
+	<td><a th:href="@{'/edit/'+${obj.id}}">編集</a></td>
+	<td><a th:href="@{'/delete/'+${obj.id}}">消去</a></td>
+	<td><a th:href="@{'/view/'+${obj.id}}">見る</a></td>
+	<td th:text="${obj.date}"></td>
+	<td th:text="${obj.title}"></td>
+	<td th:text="${obj.memo}"></td>
+	</tr>
+	</table>
+	</pre>
+	<details>
+    <summary>メニュー</summary>
+　　　 <a href="http://localhost:8080/">編集画面</a>
+　　　 <a href="http://localhost:8080/view">ブログページ</a>
+　　 　</details>
+	<br>
+	<br>
+	<table border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d438_f6_022/5cf6184c7dccf/" alt="アクセスカウンター" border="0"></a></td></tr><tr><td align="center" style="font-size:xx-small"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0"><img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0"><img src="http://www.rays-counter.com/images/counter_04.gif" border="0"><img src="http://www.rays-counter.com/images/counter_05.gif" border="0"></td></tr></table>
+    
+    
+</body>
+</html>

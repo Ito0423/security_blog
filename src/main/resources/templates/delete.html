@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>top page</title>
+	<meta http-equiv="Content-Type" 
+		content="text/html; charset=UTF-8" />
+	<style>
+	h1 { font-size:18pt; font-weight:bold; color:black; }
+	body { font-size:13pt; color:black; margin:5px 25px; } 
+	pre { font-size:13pt; color:black; padding:5px 1px; }
+	tr { margin:5px; }
+	th { padding:5px; color:white; background:darkgray; }
+	td { padding:5px; color:black; background:#f0f0f0; }
+	</style>
+</head>
+<body bgcolor="#CCFFFF">
+	<h1 >編集</h1>
+
+	<details>
+    <summary>メニュー</summary>
+　　　 <a href="http://localhost:8080/">編集画面</a>
+　　　 <a href="http://localhost:8080/view">ブログページ</a>
+　　 　</details>
+<pre>
+	<table>
+	<form method="post" action="/delete"　th:object="${formModel}">
+	<input type="hidden" name="id" th:value="*{id}"/>
+	<tr><td>タイトル</td><td th:text="*{title}"></td></tr>
+	<tr><td>編集日時</td><td th:text="*{date}"></td></tr>
+	<tr><td>文</td><td><text name="memo" rows="20" cols="50" th:text="*{memo}"></text></td></tr>
+	<tr><td></td><td><input type="submit" value="delete"/></td></tr>
+    </form>
+	</table>
+	</pre>
+</body>
+</html>

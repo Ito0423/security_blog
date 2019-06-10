@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>top page</title>
+	<meta http-equiv="Content-Type" 
+		content="text/html; charset=UTF-8" />
+	<LINK REL="stylesheet" TYPE="text/css" HREF="css/blog.css"></LINK>
+</head>
+<body bgcolor="#CCFFFF">
+	<div id="site">
+<div id="a">
+    <h1>ブログ</h1>
+	<img src="img/website2.png"   width="100%" height="60%" >
+	<p th:text="${msg}"></p>
+	</div>
+	<br>
+	<br>
+	<br>
+	
+	<div id="b">
+　　　<pre th:object="${formModel}" th:value="*{id}">
+	<p style="font-size:30px;" th:text="*{title}"></p>
+	<hr>
+	<p th:text="*{memo}"></p>
+	<br>
+	<p style="font-size:10px; text-align: right" th:text="*{date}" ></p>
+	<br>
+	<br>
+	</pre>
+	</div>
+	
+	<div id="e">
+	<a>最新記事</a>
+	<table>
+	<tr th:each="obj:${datalist}">
+	<td><a th:href="@{'/view/'+${obj.id}}"  th:text="${obj.title}">????</a></td>
+	</tr>
+	</table>
+	</div>
+	<div id="c" >
+	<details>
+    <summary>メニュー</summary>
+　　　<td><a href="http://localhost:8080/">編集画面</a></td>
+　  　 <td><a href="http://localhost:8080/view">ブログページ</a></td>
+　　 　</details>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div id="d">
+	<table border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d438_f6_022/5cf6184c7dccf/" alt="アクセスカウンター" border="0"></a></td></tr><tr><td align="center" style="font-size:xx-small"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0"><img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0"><img src="http://www.rays-counter.com/images/counter_04.gif" border="0"><img src="http://www.rays-counter.com/images/counter_05.gif" border="0"></td></tr></table>
+	</div>
+	</div>
+</body>
+</html>
