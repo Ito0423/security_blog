@@ -127,4 +127,12 @@ public ModelAndView remove(@RequestParam long id,
 	repository.deleteById(id);
 	return new ModelAndView("redirect:/");
 }
+	@RequestMapping("/login")
+	public ModelAndView login(ModelAndView mav) {
+		return mav;
+	}
+	@RequestMapping("/hello")
+	public ModelAndView hello(ModelAndView mav) {
+		return mav;
+	}
 }
