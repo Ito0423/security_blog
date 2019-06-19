@@ -16,13 +16,14 @@
 <body bgcolor="#CCFFFF">
     <h1 >編集</h1><details>
     <summary>メニュー</summary>
-    <a href="http://localhost:8080/">編集画面</a>
-    <a href="http://localhost:8080/view">ブログページ</a>
+    <a href="http://localhost:8080/create">編集画面</a>
+    <a href="http://localhost:8080/home">ブログページ</a>
 　　 　</details>
 　　　<pre>
 	<table>
-	<form method="post" action="/"　th:object="${formModel}">
+	<form method="post" th:action="@{/edit}" action="/edit"　th:object="${formModel}">
 	<input type="hidden" name="id" th:value="*{id}"/>
+	<tr><td>タイトル</td><td th:text="*{title}"></td></td></tr>
 	<tr><td>編集日時</td><td th:text="*{date}"></td></td></tr>
 	<tr><td>文</td><td><textarea name="memo" rows="20" cols="50" th:text="*{memo}"></textarea></td></tr>
 	<tr><td></td><td><input type="submit"/></td></tr>

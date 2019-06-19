@@ -1,47 +1,54 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>top page</title>
 	<meta http-equiv="Content-Type" 
 		content="text/html; charset=UTF-8" />
-	<LINK REL="stylesheet" TYPE="text/css" HREF="css/blog.css"></LINK>
-	
+	<LINK REL="stylesheet" TYPE="text/css" HREF="/view/css/blog.css"></LINK>
 </head>
-<body bgcolor="#CCFFFF">
-	<h1 >入力画面</h1>
-<img src="img/web.jpg"  width="700" height="350" >
-	
-	<table >
-	<form method="post" action="/home"　th:object="${formModel}">
-	
-	<tr><td><label for="title">タイトル</label></td>
-	<td><input type="text" name="title" th:value="*{title}"></input></td></tr>
-	<tr><td><label for="memo">入力</label></td>
-	<td><textarea name="memo" rows="20" cols="50" th:text="*{memo}"></textarea></td></tr>
-	<tr><td></td><td><input type="submit"/></td></tr>
-	</form>
-	</table>
-	<pre>
-	<table>
-	<tr><th>編集</th><th>消去</th><th>view</th><th>編集日時</th><th>タイトル</th><th>文</th></tr>
+<body bgcolor="#f0fff0"> 
+<div id="site" >
+<div id="f">
+        <a th:href="@{/create}">ログイン</a>
+        </div>
+<div id="a">
+     <br>
+	 <a href="http://localhost:8080/home"><img src="view/img/website3.png"   width="100%" height="60%" ></a>
+	</div>
+	<div id="c" >
+<table border="black"; >
+　　　<tr><td> <a href="http://localhost:8080/home">TOP</a></td>
+<td background="white";><a href="http://localhost:8080/create">編集</a></td></tr>
+</table>
+    </div>
+    <br>
+    <br>
+<div id="b">
+　　　<pre th:each="obj:${datalist}">
+	<p style="font-size:30px;" th:text="${obj.title}"></p>
+	<hr>
+	<p th:text="${obj.memo}"></p>
+	<br>
+	<p style="font-size:10px; text-align: right" th:text="${obj.date}" ></p>
+	<br>
+	</pre>
+	</div>
+	<div id="e">
+	<p2>最新記事</p2>
+	<hr>
+	<table text-align="left">
 	<tr th:each="obj:${datalist}">
-	<td><a th:href="@{'/edit/'+${obj.id}}">編集</a></td>
-	<td><a th:href="@{'/delete/'+${obj.id}}">消去</a></td>
-	<td><a th:href="@{'/view/'+${obj.id}}">見る</a></td>
-	<td th:text="${obj.date}"></td>
-	<td th:text="${obj.title}"></td>
-	<td th:text="${obj.memo}"></td>
+	<td><p2><a th:href="@{'/view/'+${obj.id}}"  th:text="${obj.title}">????</a></p2></td>
 	</tr>
 	</table>
-	</pre>
-	<details>
-    <summary>メニュー</summary>
-　　　 <a href="http://localhost:8080/">編集</a>
-　　　 <a href="http://localhost:8080/view">ホーム</a>
-　　 　</details>
-	<br>
-	<br>
-	<table border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d438_f6_022/5cf6184c7dccf/" alt="アクセスカウンター" border="0"></a></td></tr><tr><td align="center" style="font-size:xx-small"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0"><img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0"><img src="http://www.rays-counter.com/images/counter_04.gif" border="0"><img src="http://www.rays-counter.com/images/counter_05.gif" border="0"></td></tr></table>
+	</div>
     
+    <br>
+    <br>
+    <div id="d">
+    <hr>
+	<table border="0" cellspacing="0" cellpadding="0"><tr><td valign="bottom"><a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d438_f6_022/5cf6184c7dccf/" alt="アクセスカウンター" border="0"></a></td></tr><tr><td align="center" style="font-size:xx-small"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0"><img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0"><img src="http://www.rays-counter.com/images/counter_04.gif" border="0"><img src="http://www.rays-counter.com/images/counter_05.gif" border="0"></td></tr></table>
+	</div>
+	
 </body>
 </html>

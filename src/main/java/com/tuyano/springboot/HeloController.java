@@ -24,25 +24,41 @@ public class HeloController {
 	@PostConstruct
 	 public void init(){
 		MyData d1 = new MyData();
-		d1.setTitle("tuyano");
+		d1.setTitle("毎年羽毛布団");
 		d1.setAge(123);
 		d1.setMail("syoda@tuyano.com");
-		d1.setMemo("this is my data!");
+		d1.setMemo("いい朝を迎えられております、\r\n" + 
+				"\r\n" + 
+				"\r\n" + 
+				"U.S.A.が発売されてから約一年、\r\n" + 
+				"\r\n" + 
+				"\r\n" + 
+				"色んな事がものすごいスピードで駆け巡りました。\r\n" + 
+				"\r\n" + 
+				"\r\n" + 
+				"それ以前にも色んな事がありました、\r\n" + 
+				"\r\n" + 
+				"\r\n" + 
+				"無駄な事は一つもなかったよ。\r\n" + 
+				"\r\n" + 
+				"\r\n" + 
+				"今まで一緒にいてくれた方とこれから出会うみんなに最大級の感謝を！！\r\n" + 
+				"");
 		repository.saveAndFlush(d1);
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView index(
 			@ModelAttribute("formModel") MyData mydata, 
 			ModelAndView mav) {
-		mav.setViewName("home");
+		mav.setViewName("create");
 		mav.addObject("msg","this is sample content.");
 		Iterable<MyData> list = repository.findAll();
 		mav.addObject("datalist",list);
 		return mav;
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@Transactional(readOnly=false)
 	public ModelAndView form(
 			@ModelAttribute("formModel") MyData mydata, 
@@ -52,11 +68,11 @@ public class HeloController {
 	}
 	
 
-	@RequestMapping(value = "/view", method = RequestMethod.GET)
+	@RequestMapping(value = {"/home", "/"}, method = RequestMethod.GET)
 	public ModelAndView view(
 			@ModelAttribute("formModel") MyData mydata, 
 			ModelAndView mav) {
-		mav.setViewName("view");
+		mav.setViewName("home");
 		mav.addObject("msg","this is sample content.");
 		Iterable<MyData> list = repository.findAll();
 		mav.addObject("datalist",list);		
@@ -75,7 +91,7 @@ public class HeloController {
 	@RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
 	public ModelAndView view_id(@ModelAttribute MyData mydata, 
 			@PathVariable int id,ModelAndView mav) {
-		mav.setViewName("view1");
+		mav.setViewName("view");
 	mav.addObject("title","edit mydata.");
 		Optional<MyData> data = repository.findById((long)id);
 		Iterable<MyData> list = repository.findAll();

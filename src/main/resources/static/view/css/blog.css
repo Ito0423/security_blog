@@ -1,11 +1,12 @@
 @charset "UTF-8";
-p{ font-size:15pt; color:black; margin:0px;}
+
+html{height:100%; }
+p{ font-size:12pt; color:black; margin:0px;}
 p1{ font-size:10pt; color:black;}
-p2{font-size:20pt; color:black;}
-p3{font-size:30pt; color:red;}
+p2{font-size:15pt; color:black;}
+p3{font-size:12pt; color:red;}
 p4{font-size:40px;color:black}
 h1 { font-size:20pt; font-weight:bold; color:black;}
-a{font-size:15pt;}
 body { font-size:13pt; color:black;} 
 pre {
   padding: 0em;
@@ -20,13 +21,19 @@ pre {
 }
 tr { margin:5px;}
 th { padding:5px; color:white; background:darkgray; }
-td { padding:5px; color:black; background:#CCFFFF; }
+td { padding:5px; color:black; }
 #site{max-width:60%;
-  margin: 0 auto;}
+  margin: 0 auto; height:100%;}
 #a{height:}
 #b{float: left; width:70%; font-size:15px;}
-#e{float: right; width:10%;}
+#e{float: right; width:20%; text-align:left;}
 #c{clear: both; }
-#d{clear: both; }
+#d{clear: both; padding:0; 
+    margin:0;  width:100%; 
+  bottom: 0; height:auto; _height}
 #title{font-side:30;}
 hr{margin:0px;width:auto;_width:100%}
+#f{float:right;}
+header#sample {
+　position:fixed;
+}

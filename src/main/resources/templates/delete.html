@@ -18,17 +18,17 @@
 
 	<details>
     <summary>メニュー</summary>
-　　　 <a href="http://localhost:8080/">編集画面</a>
-　　　 <a href="http://localhost:8080/view">ブログページ</a>
+　　　 <a href="http://localhost:8080/create">編集画面</a>
+　　　 <a href="http://localhost:8080/home">ブログページ</a>
 　　 　</details>
 <pre>
 	<table>
-	<form method="post" action="/delete"　th:object="${formModel}">
+	<form method="post" th:action="@{/delete}" action="/delete"　th:object="${formModel}" >
 	<input type="hidden" name="id" th:value="*{id}"/>
 	<tr><td>タイトル</td><td th:text="*{title}"></td></tr>
 	<tr><td>編集日時</td><td th:text="*{date}"></td></tr>
 	<tr><td>文</td><td><text name="memo" rows="20" cols="50" th:text="*{memo}"></text></td></tr>
-	<tr><td></td><td><input type="submit" value="delete"/></td></tr>
+	<tr><td></td><td><input type="submit" value="delete" /></td></tr>
     </form>
 	</table>
 	</pre>

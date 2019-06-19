@@ -15,7 +15,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/view","/view/{num}").permitAll()
+                .antMatchers("/","/home","/view/{num}","/view/css/blog.css","/view/img/website2.png","/view/img/website3.png").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -24,7 +24,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .logout()
                 .permitAll();
+
     }
+ 
  
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
