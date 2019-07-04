@@ -78,16 +78,7 @@ public class HeloController {
 		mav.addObject("datalist",list);		
 		return mav;
 	}
-//	@RequestMapping(value = "/view/{id}" method = RequestMethod.GET)
-//	public ModelAndView view_id(
-//			@ModelAttribute("formModel") MyData mydata, 
-//			ModelAndView mav) {
-//		mav.setViewName("view1");
-//		mav.addObject("msg","this is sample content.");
-//		Iterable<MyData> list = repository.findAll();
-//		mav.addObject("datalist",list);
-//		return mav;
-//	}
+
 	@RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
 	public ModelAndView view_id(@ModelAttribute MyData mydata, 
 			@PathVariable int id,ModelAndView mav) {
@@ -100,13 +91,6 @@ public class HeloController {
 		return mav;
 	}
 
-//	@RequestMapping(value = "/view}", method = RequestMethod.POST)
-//	@Transactional(readOnly=false)
-//	public ModelAndView view1(@ModelAttribute MyData mydata, 
-//			ModelAndView mav) {
-//		repository.saveAndFlush(mydata);
-//		return new ModelAndView("redirect:/");
-//	}
 	
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView edit(@ModelAttribute MyData mydata, 
